@@ -1,1 +1,6 @@
-@import './utils/mixins', './utils/vars';
+@import './utils/mixins', './utils/vars','./components/header','./components/main';
+
+*{
+    list-style-type: none;
+    text-decoration: none;
+}

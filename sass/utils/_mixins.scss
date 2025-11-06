@@ -1,0 +1,16 @@
+@mixin text($family:"Montserrat", $weight:400, $size: 16px, $color:$light-black){
+    font-family: $family;
+    font-weight: $weight;
+    font-size: $size;
+    color: $color;
+}
+@mixin input($height:76px,$radius:50px,$border:solid 1px $light-black){
+    height: $height;
+    border-radius: $radius;
+    border: $border;
+}
+@mixin bg($position: 24px 12px,$repeat: no-repeat,$size: 18px 18px){
+    background-position: $position;
+    background-repeat: $repeat;
+    background-size:$size;
+}

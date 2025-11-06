@@ -1,0 +1,59 @@
+main{
+    overflow: hidden;
+}
+.moving-line{
+    position: relative;
+    height: 173px;
+    background-image: url(/img/other/line.svg);
+    @include bg($position:left, $size:contain);
+    animation: lineMove 15s infinite linear;
+}
+.characters-slider-cont{
+    margin-top: 110px;
+    & h2{
+        margin: 0;
+        @include text($size:44px,$weight:600);
+        & span{
+            @include text($size:44px,$weight:600,$color:white);
+            background-color: $black;
+            border-radius: 60px;
+            padding: 0 15px;
+        }
+    }
+}
+.characters-slider{
+    display: flex;
+    gap: 32px;
+    margin-top: 64px;
+}
+.ch-img{
+    width: 504px;
+    height: 644px;
+    border-radius: 50px;
+    background-image: url(/img/mainCharacters/rick.png);
+    @include bg($size:365px 579px,$position:center);
+    background-color: $green;
+}
+.ch-text{
+    width: 648px;
+    & h3{
+        @include text($weight:600,$size:24px);
+    }
+    & p{
+         @include text();
+    }
+}
+
+
+
+@keyframes  lineMove {
+    0% {
+        left:1700px;
+    }
+    55%{
+        left: -100px;
+    }
+    100%{
+        left: -1500px;
+    }
+}

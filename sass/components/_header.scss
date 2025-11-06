@@ -1,0 +1,62 @@
+header{
+    background-color: $black;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    padding-top: 24px;
+    & .container{
+        height: 803px;
+        // background: radial-gradient(circle 500px at center,rgb(20, 24, 44),rgb(52, 56, 127,0)),
+        background-image: url(/img/other/header-home.png),url(/img/other/logo.svg),url(/img/other/points.svg);
+        background-position:center 50px, center 550px, 645px 450px;
+        background-repeat:no-repeat;
+        background-size:523px 411px, 462px 184px, 142px 170px;
+    }
+}
+.container{
+    position: relative;
+    width: 1184px;
+    margin: 0 auto;
+}
+.btn-nav{
+    display: flex;
+    text-align: center;
+    margin: 0;
+    &-ch{
+        @include input($border:none,$radius:50px,$height:42px);
+        background-color: $green;
+        width:126px;
+        padding-top: 10px;
+        & a{
+            @include text($weight:600,$size:14px);
+        }
+    };
+    &-ep{
+        @include input($border:solid 1px rgba(250,250,250,0.3),$height:42px);
+        background-color: inherit;
+        width:113px;
+        padding-top: 10px;
+        & a{
+            @include text($weight:600,$size:14px, $color:white);
+        }
+    };
+}
+.search{
+    position: absolute;
+    top: 0;
+    @include input($height:42px,$border:solid 1px rgba(250,250,250,0.3));
+    @include text($weight:600,$size:14px, $color:white);
+    right: 0;
+    width: 124px;
+    padding: 12px 24px 12px 50px;
+    background-color: inherit;
+    background-image: url(/img/other/search.svg);
+    @include bg();
+    &::placeholder{
+        color: white;
+    }
+}
+.header-text{
+    width: 311px;
+    @include text($color:white);
+    margin-top: 200px;
+}
