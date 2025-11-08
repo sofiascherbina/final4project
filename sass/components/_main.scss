@@ -36,6 +36,14 @@ main{
 }
 .ch-text{
     width: 648px;
+    margin: 0;
+    & li{
+        border-bottom: 1px solid rgba(17,17,17,15%);
+    } & li:first-of-type{
+        & h3{
+            margin-top: 0;
+        }
+    }
     & h3{
         @include text($weight:600,$size:24px);
     }
@@ -43,9 +51,107 @@ main{
          @include text();
     }
 }
-
-
-
+.episodes-slider{
+    height: 744px;
+    margin-top: 110px;
+    padding-top: 100px;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+    background-color: $black;
+    & h3{
+        @include text($color:white,$weight:600,$size:44px);
+        width: 620px;
+        margin-bottom: 60px;
+        & span{
+            background-color: $green;
+            border-radius: 50px;
+            padding: 0 10px;
+        }
+    }
+}
+.episodes-slider_list{
+    display: flex;
+    padding: 0;
+    gap: 24px;
+    & li{
+        width: 278px;
+        height: 314px;
+        border-radius: 25px;
+        border: 2px solid $green;
+    }
+}
+$icons: 'first', 'second' ,'third', 'fourth', 'fifth';
+    @each $icons-items in $icons{
+    .ep_li-#{$icons-items}{
+        background-image: url("/img/other/#{$icons-items}.png");
+    }
+}
+.episodes-btn{
+    @include input($height:42px,$radius:50px,$border:none);
+    @include text($weight:600, $size:14px);
+    width: 113px;
+    margin-left: 1400px;
+    background-color:$green;
+    margin-top: 30px;
+}
+.footer-main{
+    display: flex;
+    gap: 300px;
+    padding-top: 40px;
+    margin-bottom: 150px;
+}
+.footer-logo{
+    position: relative;
+    width: 225px;
+    height: 120px;
+    background-image: url(/img/other/footer.svg);
+    @include bg($size:99px 84px, $position:15px top);
+}
+.rick-logo{
+    @include input($height:49px,$border:none);
+    width:153px;
+    margin: 70px 0 0;
+    @include text($weight:600, $size:20px,$color:white);
+    padding: 14px 24px;
+    background-color: $black;
+}
+.morty-logo{
+    position: absolute;
+    left: 85px;
+    top: 50px;
+    @include input($height:49px,$border:none,$radius:25px);
+    width:125px;
+    @include text($weight:600, $size:20px);
+    text-align: center;
+    padding: 14px 24px;
+    margin: 0;
+    background-color: #DAF836;
+    transform: rotate(32deg);
+}
+.footer-nav{
+    padding-top: 30px;
+    & li:first-of-type{
+        margin-bottom: 16px
+    }
+    & a{
+        @include text();
+    }
+}
+.networks{
+    display: flex;
+    gap: 32px;
+        padding-top: 30px;
+    & li{
+        width: 56px;
+        height: 56px;
+        border: 1px solid rgba(17,17,17,15%);
+        border-radius: 15px;
+    }
+}
+.footer-text{
+    @include text($color: rgba(17,17,17,0.4));
+    text-align: center;
+}
 @keyframes  lineMove {
     0% {
         left:1700px;

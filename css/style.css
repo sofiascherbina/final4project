@@ -1,7 +1,7 @@
 header {
   background-color: #0D171D;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 70px;
+  border-bottom-right-radius: 70px;
   padding-top: 24px;
 }
 header .container {
@@ -25,11 +25,23 @@ header .container {
   text-align: center;
   margin: 0;
 }
-.btn-nav-ch {
+.btn-nav li:hover {
+  background-color: #A1D737;
   height: 42px;
   border-radius: 50px;
   border: none;
-  background-color: #A1D737;
+}
+.btn-nav li:hover a {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 14px;
+  color: #111111;
+}
+.btn-nav-ch {
+  height: 42px;
+  border-radius: 50px;
+  border: solid 1px rgba(250, 250, 250, 0.3);
+  background-color: inherit;
   width: 126px;
   padding-top: 10px;
 }
@@ -37,7 +49,7 @@ header .container {
   font-family: "Montserrat";
   font-weight: 600;
   font-size: 14px;
-  color: #111111;
+  color: white;
 }
 .btn-nav-ep {
   height: 42px;
@@ -154,6 +166,13 @@ main {
 
 .ch-text {
   width: 648px;
+  margin: 0;
+}
+.ch-text li {
+  border-bottom: 1px solid rgba(17, 17, 17, 0.15);
+}
+.ch-text li:first-of-type h3 {
+  margin-top: 0;
 }
 .ch-text h3 {
   font-family: "Montserrat";
@@ -166,6 +185,164 @@ main {
   font-weight: 400;
   font-size: 16px;
   color: #111111;
+}
+
+.episodes-slider {
+  height: 744px;
+  margin-top: 110px;
+  padding-top: 100px;
+  border-bottom-left-radius: 70px;
+  border-bottom-right-radius: 70px;
+  background-color: #0D171D;
+}
+.episodes-slider h3 {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 44px;
+  color: white;
+  width: 620px;
+  margin-bottom: 60px;
+}
+.episodes-slider h3 span {
+  background-color: #A1D737;
+  border-radius: 50px;
+  padding: 0 10px;
+}
+
+.episodes-slider_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+  gap: 24px;
+}
+.episodes-slider_list li {
+  width: 278px;
+  height: 314px;
+  border-radius: 25px;
+  border: 2px solid #A1D737;
+}
+
+.ep_li-first {
+  background-image: url("/img/other/first.png");
+}
+
+.ep_li-second {
+  background-image: url("/img/other/second.png");
+}
+
+.ep_li-third {
+  background-image: url("/img/other/third.png");
+}
+
+.ep_li-fourth {
+  background-image: url("/img/other/fourth.png");
+}
+
+.ep_li-fifth {
+  background-image: url("/img/other/fifth.png");
+}
+
+.episodes-btn {
+  height: 42px;
+  border-radius: 50px;
+  border: none;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 14px;
+  color: #111111;
+  width: 113px;
+  margin-left: 1400px;
+  background-color: #A1D737;
+  margin-top: 30px;
+}
+
+.footer-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 300px;
+  padding-top: 40px;
+  margin-bottom: 150px;
+}
+
+.footer-logo {
+  position: relative;
+  width: 225px;
+  height: 120px;
+  background-image: url(/img/other/footer.svg);
+  background-position: 15px top;
+  background-repeat: no-repeat;
+  background-size: 99px 84px;
+}
+
+.rick-logo {
+  height: 49px;
+  border-radius: 50px;
+  border: none;
+  width: 153px;
+  margin: 70px 0 0;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 20px;
+  color: white;
+  padding: 14px 24px;
+  background-color: #0D171D;
+}
+
+.morty-logo {
+  position: absolute;
+  left: 85px;
+  top: 50px;
+  height: 49px;
+  border-radius: 25px;
+  border: none;
+  width: 125px;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 20px;
+  color: #111111;
+  text-align: center;
+  padding: 14px 24px;
+  margin: 0;
+  background-color: #DAF836;
+  -webkit-transform: rotate(32deg);
+          transform: rotate(32deg);
+}
+
+.footer-nav {
+  padding-top: 30px;
+}
+.footer-nav li:first-of-type {
+  margin-bottom: 16px;
+}
+.footer-nav a {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 16px;
+  color: #111111;
+}
+
+.networks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 32px;
+  padding-top: 30px;
+}
+.networks li {
+  width: 56px;
+  height: 56px;
+  border: 1px solid rgba(17, 17, 17, 0.15);
+  border-radius: 15px;
+}
+
+.footer-text {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(17, 17, 17, 0.4);
+  text-align: center;
 }
 
 @-webkit-keyframes lineMove {
