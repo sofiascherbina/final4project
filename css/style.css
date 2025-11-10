@@ -6,10 +6,10 @@ header {
 }
 header .container {
   height: 803px;
-  background-image: url(/img/other/header-home.png), url(/img/other/logo.svg), url(/img/other/points.svg);
-  background-position: center 50px, center 550px, 645px 450px;
+  background: url(/img/other/header-home.png), url(/img/other/logo.svg), url(/img/other/points.svg), radial-gradient(ellipse 360px 240px at 600px 450px, rgba(52, 56, 127, 0.36) 0%, rgba(52, 56, 127, 0.18) 40%, rgba(52, 56, 127, 0) 100%);
+  background-position: center 50px, center 500px, 665px 430px;
   background-repeat: no-repeat;
-  background-size: 523px 411px, 462px 184px, 142px 170px;
+  background-size: 523px 411px, 462px 184px, 142px 170px, cover;
 }
 
 .container {
@@ -126,6 +126,7 @@ main {
 }
 
 .characters-slider-cont {
+  height: 764px;
   margin-top: 110px;
 }
 .characters-slider-cont h2 {
@@ -149,18 +150,23 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
   gap: 32px;
   margin-top: 64px;
+  overflow: hidden;
 }
 
 .ch-img {
+  position: relative;
+  left: 0;
+  top: 0;
   width: 504px;
   height: 644px;
   border-radius: 50px;
   background-image: url(/img/mainCharacters/rick.png);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 365px 579px;
+  background-size: contain;
   background-color: #A1D737;
 }
 
@@ -174,7 +180,7 @@ main {
 .ch-text li:first-of-type h3 {
   margin-top: 0;
 }
-.ch-text h3 {
+.ch-text .ch-title {
   font-family: "Montserrat";
   font-weight: 600;
   font-size: 24px;
@@ -185,6 +191,23 @@ main {
   font-weight: 400;
   font-size: 16px;
   color: #111111;
+}
+
+.selected {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 24px;
+  color: #A1D737;
+}
+
+.bg-up {
+  -webkit-animation: bg-up 2s linear;
+          animation: bg-up 2s linear;
+}
+
+.bg-down {
+  -webkit-animation: bg-down 2s linear;
+          animation: bg-down 2s linear;
 }
 
 .episodes-slider {
@@ -345,6 +368,51 @@ main {
   text-align: center;
 }
 
+@-webkit-keyframes bg-down {
+  0% {
+    top: 0;
+  }
+  60% {
+    top: 1000px;
+  }
+  100% {
+    top: 1000px;
+  }
+}
+
+@keyframes bg-down {
+  0% {
+    top: 0;
+  }
+  60% {
+    top: 1000px;
+  }
+  100% {
+    top: 1000px;
+  }
+}
+@-webkit-keyframes bg-up {
+  0% {
+    top: 1000px;
+  }
+  60% {
+    top: 0;
+  }
+  100% {
+    top: 0;
+  }
+}
+@keyframes bg-up {
+  0% {
+    top: 1000px;
+  }
+  60% {
+    top: 0;
+  }
+  100% {
+    top: 0;
+  }
+}
 @-webkit-keyframes lineMove {
   0% {
     left: 1700px;
@@ -356,7 +424,6 @@ main {
     left: -1500px;
   }
 }
-
 @keyframes lineMove {
   0% {
     left: 1700px;

@@ -9,6 +9,7 @@ main{
     animation: lineMove 15s infinite linear;
 }
 .characters-slider-cont{
+    height: 764px;
     margin-top: 110px;
     & h2{
         margin: 0;
@@ -23,15 +24,20 @@ main{
 }
 .characters-slider{
     display: flex;
+    position: relative;
     gap: 32px;
     margin-top: 64px;
+    overflow: hidden;
 }
 .ch-img{
+    position: relative;
+    left: 0;
+    top: 0;
     width: 504px;
     height: 644px;
     border-radius: 50px;
     background-image: url(/img/mainCharacters/rick.png);
-    @include bg($size:365px 579px,$position:center);
+    @include bg($size:contain,$position:center);
     background-color: $green;
 }
 .ch-text{
@@ -44,12 +50,21 @@ main{
             margin-top: 0;
         }
     }
-    & h3{
+    & .ch-title{
         @include text($weight:600,$size:24px);
     }
     & p{
          @include text();
     }
+}
+.selected{
+    @include text($weight:600,$size:24px,$color:$green);
+}
+.bg-up{
+    animation: bg-up 2s linear;
+}
+.bg-down{
+    animation: bg-down 2s linear;
 }
 .episodes-slider{
     height: 744px;
@@ -152,6 +167,29 @@ $icons: 'first', 'second' ,'third', 'fourth', 'fifth';
     @include text($color: rgba(17,17,17,0.4));
     text-align: center;
 }
+@keyframes  bg-down {
+    0% {
+       top:0;
+    }
+    60%{
+        top: 1000px;
+    }
+    100%{
+        top: 1000px;
+    }
+}
+@keyframes  bg-up {
+    0% {
+       top:1000px;
+    }
+     60%{
+        top: 0;
+    }
+    100%{
+        top: 0;
+    }
+}
+
 @keyframes  lineMove {
     0% {
         left:1700px;

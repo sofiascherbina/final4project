@@ -1,0 +1,33 @@
+let chList = document.querySelectorAll('.ch-text li h3');
+let chImg = document.querySelector('.ch-img');
+let timer = 0;
+let srcArr = ['/img/mainCharacters/rick.png','/img/mainCharacters/morty.png','/img/mainCharacters/summer.png','/img/mainCharacters/beth.png','/img/mainCharacters/jerry.png'];
+
+function updateCharacter() {
+    chImg.classList.add('bg-up');
+
+    chList.forEach((el, index) => {
+        el.classList.add('ch-title');
+        el.classList.remove('selected');
+        if (index === timer) {
+            el.classList.remove('ch-title');
+            el.classList.add('selected');
+        }
+    });
+     setTimeout(() => {
+        chImg.classList.remove('bg-up');
+        chImg.classList.add('bg-down');
+        timer++;
+         if (timer >= srcArr.length) {
+        timer = 0;
+    }
+        setTimeout(() => {
+            chImg.style.backgroundImage = `url("${srcArr[timer]}")`;
+            console.log(timer);
+             chImg.classList.remove('bg-down');
+        }, 1000); 
+        
+    }, 4000);
+}
+setInterval(updateCharacter, 5000);
+updateCharacter();

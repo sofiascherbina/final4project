@@ -5,11 +5,15 @@ header{
     padding-top: 24px;
     & .container{
         height: 803px;
-        // background: radial-gradient(circle 500px at center,rgb(20, 24, 44),rgb(52, 56, 127,0)),
-        background-image: url(/img/other/header-home.png),url(/img/other/logo.svg),url(/img/other/points.svg);
-        background-position:center 50px, center 550px, 645px 450px;
+        background:
+            url(/img/other/header-home.png),url(/img/other/logo.svg),url(/img/other/points.svg),
+             radial-gradient(ellipse 360px 240px at 600px 450px, 
+                  rgba(52,56,127,0.36) 0%,
+                  rgba(52,56,127,0.18) 40%,
+                  rgba(52,56,127,0.00) 100%);
+        background-position:center 50px, center 500px, 665px 430px;
         background-repeat:no-repeat;
-        background-size:523px 411px, 462px 184px, 142px 170px;
+        background-size:523px 411px, 462px 184px, 142px 170px,cover;
     }
 }
 .container{
