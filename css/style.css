@@ -232,6 +232,17 @@ main {
   padding: 0 10px;
 }
 
+.episodes-slider_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  gap: 24px;
+}
+.episodes-slider_container .first li {
+  border: 1px solid red;
+}
+
 .episodes-slider_list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -266,6 +277,57 @@ main {
   background-image: url("/img/other/fifth.png");
 }
 
+.firstMove {
+  -webkit-animation: moveFirst 5s linear infinite;
+          animation: moveFirst 5s linear infinite;
+}
+
+.secondMove {
+  -webkit-animation: moveSecond 5s linear infinite;
+          animation: moveSecond 5s linear infinite;
+}
+
+@-webkit-keyframes moveFirst {
+  0% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+}
+
+@keyframes moveFirst {
+  0% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+}
+@-webkit-keyframes moveSecond {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+@keyframes moveSecond {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
 .episodes-btn {
   height: 42px;
   border-radius: 50px;

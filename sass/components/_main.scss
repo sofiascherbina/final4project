@@ -84,6 +84,16 @@ main{
         }
     }
 }
+.episodes-slider_container{
+    display: flex;
+    overflow: hidden;
+    gap: 24px;
+    & .first{
+        & li{
+            border: 1px solid red;
+        }
+    }
+}
 .episodes-slider_list{
     display: flex;
     padding: 0;
@@ -100,6 +110,20 @@ $icons: 'first', 'second' ,'third', 'fourth', 'fifth';
     .ep_li-#{$icons-items}{
         background-image: url("/img/other/#{$icons-items}.png");
     }
+}
+.firstMove{
+animation:moveFirst 5s linear infinite;
+}
+.secondMove{
+animation: moveSecond 5s linear infinite ;
+}
+@keyframes moveFirst{
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+@keyframes moveSecond{
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0%); }
 }
 .episodes-btn{
     @include input($height:42px,$radius:50px,$border:none);

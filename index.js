@@ -31,3 +31,20 @@ function updateCharacter() {
 }
 setInterval(updateCharacter, 5000);
 updateCharacter();
+
+
+let firstContEp = document.querySelector('.episodes-slider_list.first');
+let secondContEp = document.querySelector('.episodes-slider_list.second');
+ 
+function change() {
+  setTimeout(() => {
+    firstContEp.classList.add('secondMove');
+    firstContEp.classList.remove('firstMove');
+  }, 5000);
+  setTimeout(()=>{
+      firstContEp.classList.remove('secondMove');
+    firstContEp.classList.add('firstMove');
+  },5000);
+
+}
+change();
