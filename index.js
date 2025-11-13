@@ -2,6 +2,7 @@ let chList = document.querySelectorAll('.ch-text li h3');
 let chImg = document.querySelector('.ch-img');
 let timer = 0;
 let srcArr = ['/img/mainCharacters/rick.png','/img/mainCharacters/morty.png','/img/mainCharacters/summer.png','/img/mainCharacters/beth.png','/img/mainCharacters/jerry.png'];
+let bgArr = ['#A1D737','#0D171D','#DAF836','#A1D737','#0D171D'];
 
 function updateCharacter() {
     chImg.classList.add('bg-up');
@@ -23,7 +24,7 @@ function updateCharacter() {
     }
         setTimeout(() => {
             chImg.style.backgroundImage = `url("${srcArr[timer]}")`;
-            console.log(timer);
+            chImg.style.backgroundColor = `${bgArr[timer]}`;
              chImg.classList.remove('bg-down');
         }, 1000); 
         

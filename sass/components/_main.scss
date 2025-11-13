@@ -1,12 +1,155 @@
-main{
-    overflow: hidden;
-}
+// main{
+//     overflow-y: hidden;
+// }
 .moving-line{
     position: relative;
     height: 173px;
-    background-image: url(/img/other/line.svg);
-    @include bg($position:left, $size:contain);
-    animation: lineMove 15s infinite linear;
+}
+.moving-line-container{
+    position: absolute;
+    padding-left: 20px;
+    top: -60px;
+    left: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0;
+    & .first{
+        & p:nth-child(1){
+            position: absolute;
+            bottom: 18px;
+            left: 0;
+           @include input($height:49px,$border:none);
+           width: 218px;
+           background-color: $black;
+           @include text($weight:600, $color:white,$size:21px); 
+        }
+        & p:nth-child(2){
+            position: absolute;
+            top: 55px;
+            left: 55px;
+           @include input($height:49px,$border:none);
+           width: 153px;
+           background-color: $green;
+           @include text($weight:600,$size:20px); 
+        }
+        & p:nth-child(3){
+            position: absolute;
+            top: 30px;
+            left: 145px;
+           @include input($height:49px,$border:none);
+           width: 125px;
+           background-color: $light-green;
+           @include text($weight:600,$size:21px);
+           transform: rotate(31deg); 
+        }
+    }
+    & .second{
+        & p:nth-child(1){
+            position: absolute;
+            bottom: 18px;
+            left: 271px;
+           @include input($height:49px,$border:none);
+           width: 207px;
+           background-color: $green;
+           @include text($weight:600, $size:21px); 
+        }
+        & p:nth-child(2){
+            position: absolute;
+            top: 75px;
+            left: 355px;
+           @include input($height:49px,$border:none);
+           width: 187px;
+           background-color: $black;
+           @include text($weight:600,$color:$green, $size:21px);
+           transform: rotate(17deg); 
+        }
+    }
+    & .third{
+        & p:nth-child(1){
+            position: absolute;
+            bottom: 18px;
+            left: 620px;
+           @include input($height:49px,$border:none);
+           width:151px;
+           background-color: $green;
+           @include text($weight:600,$size:21px); 
+           transform: rotate(180deg); 
+        }
+        & p:nth-child(2){
+            position: absolute;
+            top: 70px;
+            left: 560px;
+           @include input($height:49px,$border:none);
+           width: 133px;
+           background-color: $light-green;
+           @include text($weight:600,$size:20px);
+           transform: rotate(132deg);  
+        }
+    }
+    & .fourth{
+        & p:nth-child(1){
+            position: absolute;
+            bottom: 18px;
+            left: 780px;
+           @include input($height:49px,$border:none);
+           width:213px;
+           background-color: $black;
+           @include text($weight:600,$color:white, $size:21px);  
+        }
+        & p:nth-child(2){
+            position: absolute;
+            top: 70px;
+            left: 920px;
+           @include input($height:49px,$border:none);
+           width: 118px;
+           background-color: $light-green;
+           @include text($weight:600,$size:20px);
+           transform: rotate(34deg);  
+        }
+    }
+    & .fifth{
+        & p:nth-child(1){
+            position: absolute;
+            bottom: 18px;
+            left: 1065px;
+           @include input($height:49px,$border:none);
+           width:123px;
+           background-color: $black;
+           @include text($weight:600,$color:$green, $size:20px); 
+           transform: rotate(180deg); 
+        }
+    }
+    & .sixth{
+        & p:nth-child(1){
+            position: absolute;
+            top: 70px;
+            left: 1235px;
+           @include input($height:49px,$border:none);
+           width:161px;
+           background-color: $light-green;
+           @include text($weight:600,$size:21px); 
+           transform: rotate(148deg); 
+        }
+        & p:nth-child(2){
+            position: absolute;
+            bottom: 18px;
+            left: 1320px;
+           @include input($height:49px,$border:none);
+           width: 111px;
+           background-color: $green;
+           @include text($weight:600,$size:20px);
+           transform: rotate(180deg);  
+        }
+    }
+}
+.moving-line-container_el{
+    position: relative;
+    text-align: center;
+     height: 173px;
+    & p{
+        padding-top: 14px;
+        margin: 0;
+    }
 }
 .characters-slider-cont{
     height: 764px;
@@ -88,11 +231,11 @@ main{
     display: flex;
     overflow: hidden;
     gap: 24px;
-    & .first{
-        & li{
-            border: 1px solid red;
-        }
-    }
+    // & .first{
+    //     & li{
+    //         border: 1px solid red;
+    //     }
+    // }
 }
 .episodes-slider_list{
     display: flex;
@@ -126,12 +269,15 @@ animation: moveSecond 5s linear infinite ;
     100% { transform: translateX(0%); }
 }
 .episodes-btn{
+    & a{
+        @include text($weight:600, $size:14px);
+    }
     @include input($height:42px,$radius:50px,$border:none);
-    @include text($weight:600, $size:14px);
     width: 113px;
     margin-left: 1400px;
     background-color:$green;
     margin-top: 30px;
+    padding: 10px 24px;
 }
 .footer-main{
     display: flex;
@@ -164,7 +310,7 @@ animation: moveSecond 5s linear infinite ;
     text-align: center;
     padding: 14px 24px;
     margin: 0;
-    background-color: #DAF836;
+    background-color: $light-green;
     transform: rotate(32deg);
 }
 .footer-nav{
