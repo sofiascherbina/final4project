@@ -1,10 +1,11 @@
-header{
-    background-color: $black;
-    border-bottom-left-radius: 70px;
-    border-bottom-right-radius: 70px;
-    padding-top: 24px;
-    & .container{
+.header-main-cont{
+        background-color: $black;
+        border-bottom-left-radius: 70px;
+        border-bottom-right-radius: 70px;
+        padding-top: 14px;
+         & .container{
         height: 803px;
+        padding-top: 24px;
         background:
             url(/img/other/header-home.png),url(/img/other/logo.svg),url(/img/other/points.svg),
              radial-gradient(ellipse 360px 240px at 600px 450px, 
@@ -16,11 +17,69 @@ header{
         background-size:523px 411px, 462px 184px, 142px 170px,cover;
     }
 }
+@media screen and (max-width:768px) {
+    .header-main-cont{
+        & .container{
+            height: 825px;
+            padding-top: 14px;
+            background:
+            url(/img/other/header-home.png),url(/img/other/logo.svg),url(/img/other/points.svg),
+             radial-gradient(ellipse 360px 240px at 400px 450px, 
+                  rgba(52,56,127,0.36) 0%,
+                  rgba(52,56,127,0.18) 40%,
+                  rgba(52,56,127,0.00) 100%);
+        background-position:center 50px, center 500px, 420px 430px;
+        background-repeat:no-repeat;
+        background-size:523px 411px, 462px 184px, 142px 170px,cover;
+        }
+    }
+}
+@media screen and (max-width:375px) {
+    .header-main-cont{
+        & .container{
+            height: 791px;
+            padding-top: 14px;
+            background:
+            url(/img/other/header-home.png),url(/img/other/logo.svg),url(/img/other/points.svg),
+             radial-gradient(ellipse 360px 240px at 400px 450px, 
+                  rgba(52,56,127,0.36) 0%,
+                  rgba(52,56,127,0.18) 40%,
+                  rgba(52,56,127,0.00) 100%);
+        background-position:center 50px, center 500px, 420px 430px;
+        background-repeat:no-repeat;
+        background-size:523px 411px, 462px 184px, 142px 170px,cover;
+        }
+    }
+}
 .container{
     position: relative;
-    width: 1184px;
     margin: 0 auto;
-    // z-index: 0;
+}
+@media screen and (min-width:375px){
+    .container{
+    width: 335px;
+    }
+}
+@media screen and (min-width:768px){
+    .container{
+    width: 704px;
+    }
+}
+@media screen and (min-width:1600px) {
+    .container{
+    width: 1184px;
+}
+}
+@media screen and (min-width:375px){
+    .btn-nav{
+        padding: 0;
+    &-ch{
+        width: 107px
+    };
+    &-ep{
+        width: 96px
+    };
+}
 }
 .btn-nav{
     display: flex;
@@ -52,9 +111,10 @@ header{
         }
     };
 }
+
 .search{
     position: absolute;
-    top: 0;
+    top: 20px;
     @include input($height:42px,$border:solid 1px rgba(250,250,250,0.3));
     @include text($weight:600,$size:14px, $color:white);
     right: 0;
@@ -67,10 +127,23 @@ header{
         color: white;
     }
 }
+@media screen and (max-width:375px){
+    .search{
+        width: 103px;
+}
+}
 .header-text{
-    width: 311px;
     @include text($color:white);
+    width: 311px;
     margin-top: 200px;
+}
+
+@media screen and (max-width:768px){
+    .header-text{
+        width: 412px;
+        margin: 670px auto 0;
+        text-align: center;
+    }
 }
 .arrow-btn{
     position: fixed;

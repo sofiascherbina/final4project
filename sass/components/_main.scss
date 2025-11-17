@@ -1,6 +1,3 @@
-// main{
-//     overflow-y: hidden;
-// }
 .moving-line{
     position: relative;
     height: 173px;
@@ -142,6 +139,21 @@
         }
     }
 }
+@media screen and (max-width:375px){
+    .moving-line-container{
+        width: 375px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
+@media screen and (max-width:768px){
+    .moving-line-container{
+        width: 768px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
+
 .moving-line-container_el{
     position: relative;
     text-align: center;
@@ -165,6 +177,11 @@
         }
     }
 }
+@media screen and (max-width:768px) {
+    .characters-slider-cont{
+        height: 1482px;
+    }
+}
 .characters-slider{
     display: flex;
     position: relative;
@@ -172,8 +189,14 @@
     margin-top: 64px;
     overflow: hidden;
 }
+@media screen and (max-width:768px) {
+    .characters-slider{
+        display: block;
+    }
+}
 .ch-img{
     position: relative;
+    z-index: 0;
     left: 0;
     top: 0;
     width: 504px;
@@ -183,9 +206,18 @@
     @include bg($size:contain,$position:center);
     background-color: $green;
 }
+@media screen and (max-width:768px) {
+    .ch-img{
+        width: 704px;
+        height: 704px;
+    }
+}
 .ch-text{
     width: 648px;
+    position: relative;
+    z-index: 1;
     margin: 0;
+    background-color: white;
     & li{
         border-bottom: 1px solid rgba(17,17,17,15%);
     } & li:first-of-type{
@@ -198,6 +230,13 @@
     }
     & p{
          @include text();
+    }
+}
+@media screen and (max-width:768px) {
+    .ch-text{
+        padding-top: 32px;
+        padding-left: 0;
+        width: 768px;
     }
 }
 .selected{
@@ -225,6 +264,11 @@
             border-radius: 50px;
             padding: 0 10px;
         }
+    }
+}
+@media screen and (max-width:768px) {
+    .episodes-slider{
+        margin-top: 125px;
     }
 }
 .episodes-slider_container{
@@ -279,11 +323,21 @@ animation: moveSecond 5s linear infinite ;
     margin-top: 30px;
     padding: 10px 24px;
 }
+@media screen and (max-width:768px) {
+    .episodes-btn{
+        margin-left: 600px;
+    }
+}
 .footer-main{
     display: flex;
     gap: 300px;
     padding-top: 40px;
     margin-bottom: 150px;
+}
+@media screen and (max-width:768px) {
+    .footer-main{
+        gap:96px;
+    }
 }
 .footer-logo{
     position: relative;
