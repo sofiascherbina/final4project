@@ -51,26 +51,21 @@
         }
     }
 }
-.container{
-    position: relative;
-    margin: 0 auto;
+@media screen and (min-width:768px){
+    .container{
+    width: 704px;
+    }
 }
 @media screen and (min-width:375px){
     .container{
     width: 335px;
     }
 }
-@media screen and (min-width:768px){
-    .container{
-    width: 704px;
-    }
-}
-@media screen and (min-width:1600px) {
-    .container{
+.container{
+    position: relative;
+    margin: 0 auto;
     width: 1184px;
 }
-}
-
 .btn-nav{
     display: flex;
     text-align: center;
@@ -130,7 +125,7 @@
     padding: 12px 24px 12px 50px;
     background-color: inherit;
     background-image: url(/img/other/search.svg);
-    @include bg();
+    @include bg($position:24px 12px, $size: 18px 18px);
     &::placeholder{
         color: white;
     }
@@ -141,7 +136,7 @@
         width: 103px;
         @include text($weight:600,$size:12px, $color:white);
         padding: 12px 0 12px 42px;
-        @include bg($position:18px 12px);
+        @include bg($position:18px 12px, $size: 18px 18px);
 }
 }
 .header-text{
@@ -149,9 +144,7 @@
     width: 311px;
     margin-top: 200px;
     line-height: 20px;
-    & p{
-        margin: 0;
-    }
+    // & p
 }
 
 @media screen and (max-width:768px){
@@ -178,4 +171,16 @@
     border: 1px solid rgba($color: white, $alpha: 0.5);
     border-radius: 50px;
     padding: 17px 19px;
+}
+
+
+.header-ch-cont{
+    background-color: $black;
+    height: 73px;
+    & .logo{
+    width: 193px;
+    height: 73px;
+    background-image: url(/img/other/logo.svg);
+    @include bg($position:center, $size:contain);
+}
 }

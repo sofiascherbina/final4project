@@ -9,7 +9,7 @@
     border-radius: $radius;
     border: $border;
 }
-@mixin bg($position: 24px 12px,$repeat: no-repeat,$size: 18px 18px){
+@mixin bg($position: center,$repeat: no-repeat,$size: cover){
     background-position: $position;
     background-repeat: $repeat;
     background-size:$size;

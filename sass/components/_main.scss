@@ -396,6 +396,13 @@ animation: moveSecond 5s linear infinite ;
 }
 .footer-content{
     width: 100vw;
+    display: flex;
+    gap: 300px;
+}
+@media screen and (max-width:768px) {
+ .footer-content{
+    gap: 75px;
+}
 }
 @media screen and (max-width:376px) {
     .footer-main{
@@ -404,6 +411,7 @@ animation: moveSecond 5s linear infinite ;
         margin-bottom: 80px;
         & .footer-content{
         width: 44px;
+        display: block;
 }
     }
 }
@@ -474,6 +482,7 @@ animation: moveSecond 5s linear infinite ;
     line-height: 10px;
 }
 }
+
 .networks{
     display: flex;
     gap: 32px;
@@ -484,6 +493,15 @@ animation: moveSecond 5s linear infinite ;
         border: 1px solid rgba(17,17,17,15%);
         border-radius: 15px;
     }
+    & .net-first{
+            padding: 15px 21px;
+        }
+    & .net-second{
+            padding: 17px 15px;
+        }
+    & .net-third{
+            padding: 15px 15px;
+        }
 }
 @media screen and (max-width:376px) {
     .networks{
@@ -494,7 +512,27 @@ animation: moveSecond 5s linear infinite ;
             height:40px;
             border-radius: 10px;
         }
-
+        & .net-first{
+            padding: 10px 10px;
+            & svg{
+                width: 15px;
+                height: 17px;
+            }
+        }
+        & .net-second{
+            padding: 10px 12px;
+            & svg{
+                width: 18px;
+                height: 18px;
+            }
+        }
+        & .net-third{
+            padding: 10px 10px;
+            & svg{
+                width: 18px;
+                height: 18px;
+            }
+        }
     }
 }
 .footer-text{
