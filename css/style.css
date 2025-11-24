@@ -1172,7 +1172,7 @@
   font-size: 14px;
   color: #0D171D;
 }
-.filtering-ch-op li select {
+.filtering-ch-op li .selector {
   padding: 16px 24px;
   height: 50px;
   border-radius: 25px;
@@ -1186,7 +1186,7 @@
   -moz-appearance: none;
   background-image: url(/img/other/arrow-down.svg);
 }
-.filtering-ch-op li select:hover {
+.filtering-ch-op li .selector:hover {
   cursor: url("/img/other/cursor.svg"), auto;
 }
 .filtering-ch-op li .status-selector {
@@ -1213,6 +1213,18 @@
   background-repeat: no-repeat;
   background-size: 18px 18px;
 }
+.filtering-ch-op li .selector-list {
+  display: none;
+  border: 1px solid #0D171D;
+  border-radius: 25px;
+  padding: 15px 20px;
+  line-height: 25px;
+  color: rgba(17, 17, 17, 0.3);
+}
+.filtering-ch-op li .selector-list li:hover {
+  color: #0D171D;
+  cursor: url("/img/other/cursor.svg"), auto;
+}
 
 .load-more {
   display: block;
@@ -1227,6 +1239,41 @@
   color: #111111;
   padding: 12px 24px;
   margin: 65px auto 0;
+}
+
+#footer-ch {
+  background-color: #0D171D;
+  padding-bottom: 16px;
+}
+#footer-ch .rick-logo {
+  background-color: #A1D737;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 20px;
+  color: #0D171D;
+}
+#footer-ch .footer-nav a {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 16px;
+  color: white;
+}
+#footer-ch .networks li {
+  border: 1px solid white;
+}
+#footer-ch .networks li svg {
+  fill: white;
+}
+#footer-ch .networks .net-second path {
+  stroke: white;
+}
+
+.footer-text {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(255, 250, 250, 0.4);
+  margin-bottom: 0;
 }
 
 * {
