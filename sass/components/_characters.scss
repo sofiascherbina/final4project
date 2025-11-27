@@ -49,12 +49,14 @@
 .filtering-ch-cont{
     margin-top: 60px;
     padding-bottom: 125px;
+    position: relative
 }
 .filtering-ch-op{
     display: flex;
+    position: absolute;
     gap: 16px;
     width: 1008px;
-    margin: 0 auto;
+    margin: 0 85px;
     padding: 0;
     & li{
         & p{
@@ -62,7 +64,7 @@
             margin-top: 0;
         }
         & input{
-            @include input($border:solid 1.5px $black, $height:50px,$radius:25px);
+            @include input($border:solid 1.8px $black, $height:50px,$radius:25px);
             @include text($size:14px,$color:$black);
             width: 233px;
             background-color: $light-green;
@@ -75,7 +77,7 @@
         }
         & .selector{
             padding: 16px 24px;
-            @include input($border:solid 1.5px $black, $height:50px,$radius:25px);
+            @include input($border:solid 1.8px $black, $height:50px,$radius:25px);
             @include text($size:14px,$color:$black);
             appearance: none; 
             -webkit-appearance: none;
@@ -103,7 +105,9 @@
         }
         & .selector-list{
             display: none;
+            background-color: white;
             border: 1px solid $black;
+            border-top: none;
             border-radius: 25px;
             padding: 15px 20px;
             line-height: 25px;
@@ -112,6 +116,32 @@
                 color: $black;
                 cursor: url('/img/other/cursor.svg'), auto;
             }
+        }
+    }
+}
+.ch-container{
+    display: flex;
+    padding: 145px 0 0;
+    gap: 24px;
+    flex-wrap: wrap;
+    & li{
+        width: 278px;
+    }
+}
+.character-img{
+    width: 278px;
+    height: 314px;
+    border-radius: 25px;
+    border: 2px solid $green;
+}
+.ch-content{
+    & .ch-title{
+        @include text($weight:600);
+    }
+    & p{
+        @include text($size:14px,$color:rgba(17,17,17,0.5));
+        & span{
+            @include text($size:14px);
         }
     }
 }
