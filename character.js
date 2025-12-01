@@ -17,11 +17,13 @@ selectorArr.forEach(el=>{
                 selectorText.textContent = li.textContent;
                 list.style.display = 'none';
                 chList.innerHTML = '';
-                showFilteredCh();  
+                showFilteredCh();
+                // loadMore.removeEventListener('click', showCharacters);
+                // loadMore.addEventListener('click', ()=>{
+                //     showFilteredCh()});  
             });
         });
 });
-
 
 let chList = document.querySelector('.ch-container');
 let loadMore = document.querySelector('.load-more');
@@ -37,15 +39,12 @@ async function templateReady() {
 }
 async function showCharacters(){
     if (!template) await templateReady();
-    const characters = await fetchCharacter(page);
+    const characters = await paginCharacter(page);
     renderCharacter(characters.results);
     page++;
-    // filterArr.forEach(op=>{
-    //     op.addEventListener('click',showFilteredCh);
-    // })
 }
 loadMore.addEventListener('click', showCharacters);
-function fetchCharacter(page){
+function paginCharacter(page){
     const params = new URLSearchParams({
         page: page,
     });
@@ -58,7 +57,15 @@ function fetchCharacter(page){
 function renderCharacter(chArr){
     const markup = template({characters: chArr});
     chList.insertAdjacentHTML('beforeend', markup);
+    let chListArr = document.querySelectorAll('.ch-container li');
+    if(chListArr.length < 19){
+            loadMore.style.display='none';
+    }
+    else if(chListArr.length >= 19) {
+        loadMore.style.display='block';
+    }
 }
+
 searchCh.addEventListener('input', _.debounce(async ()=>{
     let inputValue = searchCh.value.trim().toLowerCase();
     chList.innerHTML = '';
@@ -67,28 +74,44 @@ searchCh.addEventListener('input', _.debounce(async ()=>{
         showCharacters();
         return 
     }
-    if(!template) await templateReady();
-    const data = await fetch('https://rickandmortyapi.com/api/character');
-    const res = await data.json();
-    let filter = res.results.filter(ch => ch.name.toLowerCase().includes(inputValue));
-    renderCharacter(filter);
+     const res = await fetchCharacters({ name: inputValue });
+        renderCharacter(res.results || []);
 },500));
+function fetchCharacters(params = {}) {
+
+    const param= new URLSearchParams();
+
+    if (params.name) param.set('name', params.name);
+    if (params.status && params.status !== '-') param.set('status', params.status);
+    if (params.species && params.species !== '-')param.set('species', params.species);
+    if (params.type && params.type !== '-') param.set('type', params.type);
+    if (params.gender && params.gender !== '-') param.set('gender', params.gender);
+
+    const url = new URL('https://rickandmortyapi.com/api/character')
+    url.search = param.toString();
+    return fetch(url)
+    .then(res=>res.json());
+}
+
 async function showFilteredCh(){
-     if(!template) await templateReady();
-    const data = await fetch('https://rickandmortyapi.com/api/character');
-    const res = await data.json();
     const statusValue = document.querySelector('#status').textContent.toLowerCase();
     const speciesValue = document.querySelector('#species').textContent.toLowerCase();
     const typeValue = document.querySelector('#type').textContent.toLowerCase();
     const genderValue = document.querySelector('#gender').textContent.toLowerCase();
 
-    let filtered = res.results.filter(ch => 
-        (statusValue === 'all' || ch.status.toLowerCase().includes(statusValue)) &&
-        (speciesValue === 'all' || ch.species.toLowerCase().includes(speciesValue)) &&
-        (typeValue === 'all' || ch.type.toLowerCase().includes(typeValue)) &&
-        (genderValue === 'all' || ch.gender.toLowerCase().includes(genderValue))
-    );
-    console.log(filtered);
-    renderCharacter(filtered);
+    // let filtered = res.results.filter(ch => 
+    //     (statusValue === 'all' || ch.status.toLowerCase().includes(statusValue)) &&
+    //     (speciesValue === 'all' || ch.species.toLowerCase().includes(speciesValue)) &&
+    //     (typeValue === 'all' || ch.type.toLowerCase().includes(typeValue)) &&
+    //     (genderValue === 'all' || ch.gender.toLowerCase().includes(genderValue))
+    // );
+    const res = await fetchCharacters({
+            status: statusValue,
+            species: speciesValue,
+            type: typeValue,
+            gender: genderValue
+        });
+   renderCharacter(res.results);
+    page++;
 }
  showCharacters();
