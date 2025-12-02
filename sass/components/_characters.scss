@@ -145,6 +145,21 @@
         }
     }
 }
+.error{
+    display: block;
+    margin: 0 auto;
+}
+.error-pic{
+    width: 388px;
+    height: 358px;
+    margin: 64px auto 0;
+    @include bg();
+    background-image: url(/img/other/errorPic.png);
+}
+.error-text{
+    @include text($size:24px);
+    text-align: center;
+}
 .load-more{
     display: block;
     @include input($height:42px,$radius:50px,$border:none);

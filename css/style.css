@@ -1269,6 +1269,29 @@
   color: #111111;
 }
 
+.error {
+  display: block;
+  margin: 0 auto;
+}
+
+.error-pic {
+  width: 388px;
+  height: 358px;
+  margin: 64px auto 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(/img/other/errorPic.png);
+}
+
+.error-text {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 24px;
+  color: #111111;
+  text-align: center;
+}
+
 .load-more {
   display: block;
   height: 42px;

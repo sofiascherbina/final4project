@@ -74,10 +74,22 @@ searchCh.addEventListener('input', _.debounce(async ()=>{
         showCharacters();
         return 
     }
-     const res = await fetchCharacters({ name: inputValue });
-        renderCharacter(res.results || []);
+    try{
+        const res = await fetchCharacters({ name: inputValue });
+        renderCharacter(res.results);
+    }
+    catch{
+        chList.innerHTML = `
+        <div class="error">
+            <div class="error-pic"></div>
+            <p class="error-text" >Oops! Try looking for something else...</p>
+        </div>`;
+        loadMore.style.display='none';
+    }
+     
 },500));
-function fetchCharacters(params = {}) {
+
+async function fetchCharacters(params = {}) {
 
     const param= new URLSearchParams();
 
@@ -89,8 +101,11 @@ function fetchCharacters(params = {}) {
 
     const url = new URL('https://rickandmortyapi.com/api/character')
     url.search = param.toString();
-    return fetch(url)
-    .then(res=>res.json());
+    let res = await fetch(url);
+    if(!res.ok){
+        throw res
+    }
+    return res.json();
 }
 
 async function showFilteredCh(){
@@ -105,13 +120,23 @@ async function showFilteredCh(){
     //     (typeValue === 'all' || ch.type.toLowerCase().includes(typeValue)) &&
     //     (genderValue === 'all' || ch.gender.toLowerCase().includes(genderValue))
     // );
-    const res = await fetchCharacters({
+    try{
+        const res = await fetchCharacters({
             status: statusValue,
             species: speciesValue,
             type: typeValue,
             gender: genderValue
         });
-   renderCharacter(res.results);
-    page++;
+        renderCharacter(res.results);
+        page++;
+    }
+    catch{
+        chList.innerHTML = `
+        <div class="error">
+            <div class="error-pic"></div>
+            <p class="error-text" >Oops! Try looking for something else...</p>
+        </div>`;
+        loadMore.style.display='none';
+    }
 }
  showCharacters();
