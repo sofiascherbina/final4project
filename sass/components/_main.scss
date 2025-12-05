@@ -179,6 +179,7 @@
 @media screen and (max-width:768px) {
     .characters-slider-cont{
         height: 1482px;
+        width: 768px;
         & h2{
         @include text($size:44px,$weight:600);
         & span{
@@ -209,6 +210,7 @@
 @media screen and (max-width:768px) {
     .characters-slider{
         display: block;
+        margin: 64px auto;
     }
 }
 .ch-img{

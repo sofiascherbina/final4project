@@ -33,22 +33,22 @@
     background-size: 335px 259px, 323px 128px, 142px 170px, cover;
   }
 }
-@media screen and (min-width: 768px) {
-  .container {
-    width: 704px;
-  }
-}
-@media screen and (min-width: 375px) {
-  .container {
-    width: 335px;
-  }
-}
 .container {
   position: relative;
   margin: 0 auto;
   width: 1184px;
 }
 
+@media screen and (max-width: 768px) {
+  .container {
+    width: 704px;
+  }
+}
+@media screen and (max-width: 376px) {
+  .container {
+    width: 335px;
+  }
+}
 .btn-nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -95,7 +95,15 @@
   color: white;
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (max-width: 768px) {
+  .btn-nav-ch {
+    width: 126px;
+  }
+  .btn-nav-ep {
+    width: 113px;
+  }
+}
+@media screen and (max-width: 376px) {
   .btn-nav {
     padding: 0;
   }
@@ -104,14 +112,6 @@
   }
   .btn-nav-ep {
     width: 96px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .btn-nav-ch {
-    width: 126px;
-  }
-  .btn-nav-ep {
-    width: 113px;
   }
 }
 .search {
@@ -462,6 +462,7 @@
 @media screen and (max-width: 768px) {
   .characters-slider-cont {
     height: 1482px;
+    width: 768px;
   }
   .characters-slider-cont h2 {
     font-family: "Montserrat";
@@ -507,6 +508,7 @@
 @media screen and (max-width: 768px) {
   .characters-slider {
     display: block;
+    margin: 64px auto;
   }
 }
 .ch-img {
@@ -1039,6 +1041,8 @@
   background-color: #0D171D;
   padding-top: 95px;
   height: 803px;
+  border-bottom-left-radius: 70px;
+  border-bottom-right-radius: 70px;
 }
 .hero-ch .container {
   display: -webkit-box;
@@ -1068,6 +1072,58 @@
   text-align: left;
 }
 
+@media screen and (max-width: 768px) {
+  .hero-ch {
+    height: 695px;
+    padding-top: 126px;
+  }
+  .hero-ch .container {
+    gap: 24px;
+  }
+  .hero-ch .hero-text {
+    width: 334px;
+    height: 166px;
+    margin: 84px 0 32px 0;
+  }
+  .hero-ch .hero-text h1 {
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 60px;
+    color: white;
+  }
+  .hero-ch .hero-text p {
+    line-height: 20px;
+    margin-bottom: 32px;
+  }
+}
+@media screen and (max-width: 376px) {
+  .hero-ch {
+    height: 790px;
+    padding-top: 60px;
+  }
+  .hero-ch .container {
+    display: block;
+  }
+  .hero-ch .hero-text {
+    width: 334px;
+    height: 148px;
+    margin: 0px 0 32px 0;
+  }
+  .hero-ch .hero-text h1 {
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 40px;
+    color: white;
+  }
+  .hero-ch .hero-text p {
+    line-height: 20px;
+    margin-bottom: 32px;
+    font-family: "Montserrat";
+    font-weight: 400;
+    font-size: 14px;
+    color: white;
+  }
+}
 .homeback {
   height: 42px;
   border-radius: 50px;
@@ -1094,6 +1150,11 @@
   color: #111111;
 }
 
+@media screen and (max-width: 768px) {
+  .homeback {
+    margin-bottom: 32px;
+  }
+}
 .hero-ch-img {
   width: 504px;
   height: 504px;
@@ -1105,12 +1166,37 @@
   background-image: url(/img/mainCharacters/rick.png);
 }
 
+@media screen and (max-width: 768px) {
+  .hero-ch-img {
+    width: 346px;
+    height: 346px;
+    border-radius: 50px;
+    background-position: center 15px;
+    background-repeat: no-repeat;
+    background-size: 317px 542px;
+  }
+}
+@media screen and (max-width: 376px) {
+  .hero-ch-img {
+    width: 335px;
+    height: 335px;
+    border-radius: 25px;
+    background-position: center 15px;
+    background-repeat: no-repeat;
+    background-size: 317px 542px;
+  }
+}
 .filtering-ch-cont {
   margin-top: 60px;
   padding-bottom: 125px;
   position: relative;
 }
 
+@media screen and (max-width: 376px) {
+  .filtering-ch-cont {
+    margin-top: 0;
+  }
+}
 .filtering-ch-op {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1128,7 +1214,7 @@
   color: #111111;
   margin-top: 0;
 }
-.filtering-ch-op li input {
+.filtering-ch-op li .search-ch {
   height: 50px;
   border-radius: 25px;
   border: solid 1.8px #0D171D;
@@ -1144,31 +1230,31 @@
   background-size: 18px 18px;
   background-image: url(/img/other/dark-search.svg);
 }
-.filtering-ch-op li input::-webkit-input-placeholder {
+.filtering-ch-op li .search-ch::-webkit-input-placeholder {
   font-family: "Montserrat";
   font-weight: 400;
   font-size: 14px;
   color: #0D171D;
 }
-.filtering-ch-op li input::-moz-placeholder {
+.filtering-ch-op li .search-ch::-moz-placeholder {
   font-family: "Montserrat";
   font-weight: 400;
   font-size: 14px;
   color: #0D171D;
 }
-.filtering-ch-op li input:-ms-input-placeholder {
+.filtering-ch-op li .search-ch:-ms-input-placeholder {
   font-family: "Montserrat";
   font-weight: 400;
   font-size: 14px;
   color: #0D171D;
 }
-.filtering-ch-op li input::-ms-input-placeholder {
+.filtering-ch-op li .search-ch::-ms-input-placeholder {
   font-family: "Montserrat";
   font-weight: 400;
   font-size: 14px;
   color: #0D171D;
 }
-.filtering-ch-op li input::placeholder {
+.filtering-ch-op li .search-ch::placeholder {
   font-family: "Montserrat";
   font-weight: 400;
   font-size: 14px;
@@ -1230,6 +1316,54 @@
   cursor: url("/img/other/cursor.svg"), auto;
 }
 
+@media screen and (max-width: 768px) {
+  .filtering-ch-op {
+    width: 768px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: 0;
+  }
+  .filtering-ch-op li .status-selector {
+    z-index: 1;
+  }
+  .filtering-ch-op li .species-selector {
+    z-index: 1;
+  }
+  .filtering-ch-op li .type-selector {
+    z-index: 0;
+  }
+  .filtering-ch-op li .gender-selector {
+    z-index: 0;
+  }
+}
+@media screen and (max-width: 376px) {
+  .filtering-ch-op {
+    width: 335px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+  }
+  .filtering-ch-op li .search-ch {
+    width: 335px;
+    background-position: 290px 16px;
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+  }
+  .filtering-ch-op li .selector {
+    width: 162px;
+  }
+  .filtering-ch-op li .species-selector {
+    background-position: 130px 16px;
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+  }
+  .filtering-ch-op li .type-selector {
+    background-position: 130px 16px;
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+  }
+}
 .ch-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1243,6 +1377,22 @@
   width: 278px;
 }
 
+@media screen and (max-width: 768px) {
+  .ch-container {
+    padding: 230px 0 0;
+    gap: 92px;
+  }
+}
+@media screen and (max-width: 376px) {
+  .ch-container {
+    display: block;
+    padding: 300px 0 0;
+    gap: 92px;
+  }
+  .ch-container li {
+    margin-bottom: 40px;
+  }
+}
 .character-img {
   width: 278px;
   height: 314px;
@@ -1250,6 +1400,18 @@
   border: 2px solid #A1D737;
 }
 
+@media screen and (max-width: 768px) {
+  .character-img {
+    width: 336px;
+    height: 337px;
+  }
+}
+@media screen and (max-width: 376px) {
+  .character-img {
+    width: 335px;
+    height: 335px;
+  }
+}
 .ch-content .ch-title {
   font-family: "Montserrat";
   font-weight: 600;
@@ -1334,6 +1496,25 @@
   stroke: white;
 }
 
+@media screen and (max-width: 768px) {
+  #footer-ch {
+    width: 768px;
+  }
+}
+@media screen and (max-width: 376px) {
+  #footer-ch {
+    width: 376px;
+  }
+  #footer-ch .rick-logo {
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 16px;
+    color: #0D171D;
+  }
+  #footer-ch .morty-logo {
+    width: 97px;
+  }
+}
 .footer-text {
   font-family: "Montserrat";
   font-weight: 400;
@@ -1342,6 +1523,26 @@
   margin-bottom: 0;
 }
 
+@media screen and (max-width: 768px) {
+  .footer-characters {
+    gap: 80px;
+  }
+  .footer-characters .networks {
+    gap: 24px;
+  }
+}
+@media screen and (max-width: 376px) {
+  .footer-characters {
+    gap: 50px;
+    height: 175px;
+  }
+  .footer-characters .networks {
+    gap: 12px;
+  }
+  .footer-characters .footer-nav {
+    margin: 0;
+  }
+}
 * {
   list-style-type: none;
   text-decoration: none;
