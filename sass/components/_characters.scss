@@ -1,4 +1,4 @@
-.hero-ch{
+.hero-common{
     background-color: $black;
     padding-top: 95px;
     height: 803px;
@@ -21,11 +21,12 @@
             margin-top: 0;
              @include text($size:16px, $color:white);
              text-align: left;
+             line-height: 23px;
         }
     }
 }
 @media screen and (max-width:768px){
-    .hero-ch{
+    .hero-common{
         height: 695px;
         padding-top:126px;
         & .container{
@@ -46,7 +47,7 @@
     }
 }
 @media screen and (max-width:376px){
-    .hero-ch{
+    .hero-common{
         height: 790px;
         padding-top:60px;
         & .container{
@@ -311,7 +312,7 @@
     padding: 12px 24px;
     margin: 65px auto 0;
 }
-#footer-ch{
+#footer-common{
     background-color: $black;
     padding-bottom: 16px;
     & .rick-logo{
@@ -336,12 +337,12 @@
     }
 }
 @media screen and (max-width:768px){
-    #footer-ch{
+    #footer-common{
         width: 768px;
     }
 }
 @media screen and (max-width:376px){
-    #footer-ch{
+    #footer-common{
         width: 376px;
         & .rick-logo{
             @include text($weight:600, $size:16px,$color:$black);
@@ -356,7 +357,7 @@
     margin-bottom: 0;
 }
 @media screen and (max-width:768px){
-    .footer-characters{
+    .footer-common{
         gap: 80px;
         & .networks{
             gap: 24px;
@@ -364,7 +365,7 @@
     }
 }
 @media screen and (max-width:376px){
-    .footer-characters{
+    .footer-common{
         gap: 50px;
         height: 175px;
         & .networks{

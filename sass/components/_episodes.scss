@@ -1,0 +1,27 @@
+.hero-ep-img{
+    width: 504px;
+    height: 504px;
+    background-color:$green ;
+    border-radius: 90px;
+    @include bg($size:465px 497px, $position: left 25px);
+    background-image: url(/img/other/ep-hero.png);
+}
+@media screen and (max-width:768px){
+    .hero-ep-img{
+        width: 346px;
+        height: 346px;
+        border-radius: 50px;
+        @include bg($size:317px 542px, $position: center 15px);
+    }
+}
+@media screen and (max-width:376px){
+    .hero-ep-img{
+        width: 335px;
+        height: 335px;
+        border-radius: 25px;
+        @include bg($size:317px 542px, $position: center 15px);
+    }
+}
+.ep-homeback{
+    margin-top: 31px;
+}
