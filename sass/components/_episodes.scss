@@ -25,3 +25,119 @@
 .ep-homeback{
     margin-top: 31px;
 }
+.filer-title{
+    @include text($size:14px);
+}
+.filter-ep{
+    display: flex;
+    gap: 16px;
+    padding-left: 370px;
+    position: absolute;
+   & .search-ep{
+    @include input($border:solid 1.8px $black, $height:50px,$radius:25px);
+            @include text($size:14px,$color:$black);
+            width: 233px;
+            background-color: $light-green;
+            padding: 16px 24px;
+            @include bg($position:200px 16px, $size:18px 18px);
+            background-image: url(/img/other/dark-search.svg);
+            &::placeholder{
+                @include text($size:14px,$color:$black);
+            }
+   }
+   & .season-selector{
+        width: 190px;
+        height: 50px;
+        padding: 16px 24px;
+        @include input($border:solid 1.8px $black, $height:50px,$radius:25px);
+        @include text($size:14px,$color:$black);
+        appearance: none; 
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url(/img/other/arrow-down.svg);
+         @include bg($position:150px 16px , $size:18px 18px);
+        &:hover{
+            cursor: url('/img/other/cursor.svg'), auto;
+        }
+        & p {
+            margin: 0;
+        }
+    }
+    & .selector-list{
+        display: none;
+        height: 215px;
+        overflow-y: auto;
+        margin-top: 0;
+        background-color: white;
+        border: 1px solid $black;
+        border-top: none;
+        border-radius: 25px;
+        padding: 15px 20px;
+        line-height: 25px;
+        color: rgba(17,17,17,0.3);
+        & ul{
+            padding-left: 20px;
+        }
+        & .season{
+            @include text($size:14px,$color:rgba(17,17,17,0.3),$weight:600);
+        }
+        & .season:hover{
+            @include text($size:14px,$color:$green,$weight:600);
+            cursor: url('/img/other/cursor.svg'), auto;
+        }
+        & p{
+            margin: 0;
+        }
+        & li{
+            & .series-list{
+                display: none;
+            }
+        }
+    }
+}
+.series-list {
+    & li:hover{
+        color: $black;
+        cursor: url('/img/other/cursor.svg'), auto;
+    }
+}
+.list-title{
+    @include text($size:14px,$color:rgba(17,17,17,0.3));
+    &:hover{
+        color: $black;
+        cursor: url('/img/other/cursor.svg'), auto;
+    }
+}
+.episodes-cont{
+    display: flex;
+    gap: 16px;
+    padding-top: 140px;
+    width: 1184px;
+    flex-wrap: wrap;
+    padding-left: 0;
+    & li{
+        width: 284px;
+        height: 200px;
+        padding: 15px;
+        border: 1px solid $light-green;
+        border-radius: 25px;
+    }
+}
+.ep-title{
+    @include text($weight:600, $color:$light-green);
+    margin: 0 0 90px;
+}
+.ep-content{
+    display: flex;
+    gap: 17px;
+    & p{
+        @include text($size:12px, $color:rgba(17,17,17,0.3));
+        & span{
+            @include text($size:12px, $color:black);
+        }
+        line-height: 20px;
+    }
+}
+.ep-more{
+    margin-bottom: 125px;
+}

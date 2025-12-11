@@ -18,9 +18,6 @@ selectorArr.forEach(el=>{
                 list.style.display = 'none';
                 chList.innerHTML = '';
                 showFilteredCh();
-                // loadMore.removeEventListener('click', showCharacters);
-                // loadMore.addEventListener('click', ()=>{
-                //     showFilteredCh()});  
             });
         });
 });
@@ -113,13 +110,6 @@ async function showFilteredCh(){
     const speciesValue = document.querySelector('#species').textContent.toLowerCase();
     const typeValue = document.querySelector('#type').textContent.toLowerCase();
     const genderValue = document.querySelector('#gender').textContent.toLowerCase();
-
-    // let filtered = res.results.filter(ch => 
-    //     (statusValue === 'all' || ch.status.toLowerCase().includes(statusValue)) &&
-    //     (speciesValue === 'all' || ch.species.toLowerCase().includes(speciesValue)) &&
-    //     (typeValue === 'all' || ch.type.toLowerCase().includes(typeValue)) &&
-    //     (genderValue === 'all' || ch.gender.toLowerCase().includes(genderValue))
-    // );
     try{
         const res = await fetchCharacters({
             status: statusValue,
