@@ -1661,7 +1661,7 @@
 }
 .filter-ep .selector-list {
   display: none;
-  height: 215px;
+  height: 185px;
   overflow-y: auto;
   margin-top: 0;
   background-color: white;
@@ -1728,6 +1728,34 @@
   padding: 15px;
   border: 1px solid #DAF836;
   border-radius: 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.first-season {
+  background-image: url(/img/other/season1.png);
+  background-color: #0D171D;
+}
+
+.second-season {
+  background-image: url(/img/other/season2.png);
+  background-color: #0D171D;
+}
+
+.third-season {
+  background-image: url(/img/other/season3.png);
+  background-color: #0D171D;
+}
+
+.fourth-season {
+  background-image: url(/img/other/season4.png);
+  background-color: #0D171D;
+}
+
+.fifth-season {
+  background-image: url(/img/other/season5.png);
+  background-color: #0D171D;
 }
 
 .ep-title {
@@ -1748,14 +1776,14 @@
   font-family: "Montserrat";
   font-weight: 400;
   font-size: 12px;
-  color: rgba(17, 17, 17, 0.3);
+  color: rgba(255, 255, 255, 0.5);
   line-height: 20px;
 }
 .ep-content p span {
   font-family: "Montserrat";
   font-weight: 400;
   font-size: 12px;
-  color: black;
+  color: white;
 }
 
 .ep-more {

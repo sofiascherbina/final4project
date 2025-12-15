@@ -65,7 +65,7 @@
     }
     & .selector-list{
         display: none;
-        height: 215px;
+        height: 185px;
         overflow-y: auto;
         margin-top: 0;
         background-color: white;
@@ -121,7 +121,28 @@
         padding: 15px;
         border: 1px solid $light-green;
         border-radius: 25px;
+        @include bg();
     }
+}
+.first-season{
+    background-image: url(/img/other/season1.png); 
+    background-color:#0D171D;
+}
+.second-season{
+    background-image: url(/img/other/season2.png); 
+    background-color:#0D171D;
+}
+.third-season{
+    background-image: url(/img/other/season3.png); 
+    background-color:#0D171D;
+}
+.fourth-season{
+    background-image: url(/img/other/season4.png); 
+    background-color:#0D171D;
+}
+.fifth-season{
+    background-image: url(/img/other/season5.png); 
+    background-color:#0D171D;
 }
 .ep-title{
     @include text($weight:600, $color:$light-green);
@@ -131,9 +152,9 @@
     display: flex;
     gap: 17px;
     & p{
-        @include text($size:12px, $color:rgba(17,17,17,0.3));
+        @include text($size:12px, $color:rgba(white,0.5));
         & span{
-            @include text($size:12px, $color:black);
+            @include text($size:12px, $color:white);
         }
         line-height: 20px;
     }
