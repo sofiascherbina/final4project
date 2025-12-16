@@ -2,7 +2,7 @@ let selectorArr = document.querySelectorAll('.selector-cont');
 selectorArr.forEach(el=>{
     let list = el.querySelector('.selector-list');
     let selectorText = el.querySelector('.selector');
-    let listEl = el.querySelectorAll('.selector-list li');
+    let listEl = el.querySelectorAll('.selector-list-el');
     selectorText.addEventListener('click',()=>{
         if(list.style.display === 'block'){
             list.style.display = 'none';
@@ -12,12 +12,19 @@ selectorArr.forEach(el=>{
         }
 });
     listEl.forEach(li =>{
-        let season = li.querySelector('p');
+        let season = li.querySelector('.season');
         let seriesCont = li.querySelector('.series-list');
         let seriesList = li.querySelectorAll('.series-list li');
         season.addEventListener('click',()=>{
             const seasonValue = season.querySelector('.season-num').textContent.trim();
             selectorText.textContent = `${seasonValue} season`;
+            if(seasonValue === 'All season'){
+                selectorText.textContent = `${seasonValue}`;
+                epList.innerHTML = '';
+                page = 1;
+                showEpisodes();
+                return
+            }
             showFilteredEp(seasonValue);
         if(seriesCont.style.display === 'block'){
             seriesCont.style.display = 'none';
@@ -27,11 +34,12 @@ selectorArr.forEach(el=>{
         }
         seriesList.forEach(el=>{
             el.addEventListener('click',()=>{
+                const seriesValue = el.querySelector('.ser-num').textContent.trim();
                 selectorText.textContent = `${season.textContent} : ${el.textContent}`;
+                showFilteredSer(seasonValue,seriesValue);
                 list.style.display = 'none';
             });
         })
-        
         });
     });
 });
@@ -137,6 +145,28 @@ async function showFilteredEp(seasonNumber){
     try{
         const res = await fetchEpisodes({
             episode: `S0${seasonNumber}`
+        });
+        epList.innerHTML = '';
+        renderEpisodes(res.results);
+        page++;
+    }
+    catch{
+        epList.innerHTML = `
+        <div class="error">
+            <div class="error-pic"></div>
+            <p class="error-text" >Oops! Try looking for something else...</p>
+        </div>`;
+        loadMore.style.display='none';
+    }
+}
+function formatEpisodeNumber(num) {
+    return num < 10 ? `0${num}` : `${num}`;
+}
+
+async function showFilteredSer(seasonNumber,seriesNumber){
+    try{
+        const res = await fetchEpisodes({
+            episode: `S0${seasonNumber}E${formatEpisodeNumber(seriesNumber)}`
         });
         epList.innerHTML = '';
         renderEpisodes(res.results);
