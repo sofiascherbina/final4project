@@ -11,7 +11,7 @@
         width: 346px;
         height: 346px;
         border-radius: 50px;
-        @include bg($size:317px 542px, $position: center 15px);
+        @include bg($size:290px 342px, $position: left 15px);
     }
 }
 @media screen and (max-width:376px){
@@ -19,7 +19,7 @@
         width: 335px;
         height: 335px;
         border-radius: 25px;
-        @include bg($size:317px 542px, $position: center 15px);
+        @include bg($size:303px 324px, $position: left 15px);
     }
 }
 .ep-homeback{
@@ -95,6 +95,30 @@
         }
     }
 }
+@media screen and (max-width:768px) {
+    .filter-ep{
+        width: 768px;
+        padding: 0 165px;
+    }
+}
+@media screen and (max-width:376px) {
+    .filter-ep{
+        display: block;
+        padding: 0;
+        width: 376px;
+        & .search-ep{
+            width: 335px;
+            @include bg($position:290px 16px, $size:18px 18px);
+        }
+        & .season-selector{
+            width: 335px;
+            @include bg($position:290px 16px, $size:18px 18px);
+        }
+        & .selector-list{
+            padding: 15px 50px;
+        }
+    }
+}
 .series-list {
     & li:hover{
         color: $black;
@@ -124,6 +148,27 @@
         @include bg();
     }
 }
+@media screen and (max-width:768px){
+    .episodes-cont{
+        width: 704px;
+        gap: 32px;
+        & li{
+            width: 336px;
+            height: 250px;
+        }
+    }
+}
+@media screen and (max-width:376px){
+    .episodes-cont{
+        padding-top: 230px;
+        width: 376px;
+        gap: 32px;
+        & li{
+            width: 336px;
+            height: 250px;
+        }
+    }
+}
 .first-season{
     background-image: url(/img/other/season1.png); 
     background-color:#0D171D;
@@ -148,6 +193,12 @@
     @include text($weight:600, $color:$light-green);
     margin: 0 0 90px;
 }
+@media screen and (max-width:768px){
+    .ep-title{
+        @include text($weight:600, $color:$light-green);
+        margin: 0 0 130px;
+}
+}
 .ep-content{
     display: flex;
     gap: 17px;
@@ -161,4 +212,22 @@
 }
 .ep-more{
     margin-bottom: 125px;
+}
+
+.modal-ep{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 673px;
+    height: 370px;
+    background-color: $black;
+    border-radius: 25px;
+}
+.close-ep{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: inherit;
+    border: none;
 }

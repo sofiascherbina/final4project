@@ -1554,9 +1554,9 @@
     width: 346px;
     height: 346px;
     border-radius: 50px;
-    background-position: center 15px;
+    background-position: left 15px;
     background-repeat: no-repeat;
-    background-size: 317px 542px;
+    background-size: 290px 342px;
   }
 }
 @media screen and (max-width: 376px) {
@@ -1564,9 +1564,9 @@
     width: 335px;
     height: 335px;
     border-radius: 25px;
-    background-position: center 15px;
+    background-position: left 15px;
     background-repeat: no-repeat;
-    background-size: 317px 542px;
+    background-size: 303px 324px;
   }
 }
 .ep-homeback {
@@ -1695,6 +1695,34 @@
   display: none;
 }
 
+@media screen and (max-width: 768px) {
+  .filter-ep {
+    width: 768px;
+    padding: 0 165px;
+  }
+}
+@media screen and (max-width: 376px) {
+  .filter-ep {
+    display: block;
+    padding: 0;
+    width: 376px;
+  }
+  .filter-ep .search-ep {
+    width: 335px;
+    background-position: 290px 16px;
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+  }
+  .filter-ep .season-selector {
+    width: 335px;
+    background-position: 290px 16px;
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+  }
+  .filter-ep .selector-list {
+    padding: 15px 50px;
+  }
+}
 .series-list li:hover {
   color: #0D171D;
   cursor: url("/img/other/cursor.svg"), auto;
@@ -1733,6 +1761,27 @@
   background-size: cover;
 }
 
+@media screen and (max-width: 768px) {
+  .episodes-cont {
+    width: 704px;
+    gap: 32px;
+  }
+  .episodes-cont li {
+    width: 336px;
+    height: 250px;
+  }
+}
+@media screen and (max-width: 376px) {
+  .episodes-cont {
+    padding-top: 230px;
+    width: 376px;
+    gap: 32px;
+  }
+  .episodes-cont li {
+    width: 336px;
+    height: 250px;
+  }
+}
 .first-season {
   background-image: url(/img/other/season1.png);
   background-color: #0D171D;
@@ -1766,6 +1815,15 @@
   margin: 0 0 90px;
 }
 
+@media screen and (max-width: 768px) {
+  .ep-title {
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 16px;
+    color: #DAF836;
+    margin: 0 0 130px;
+  }
+}
 .ep-content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1788,6 +1846,26 @@
 
 .ep-more {
   margin-bottom: 125px;
+}
+
+.modal-ep {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 673px;
+  height: 370px;
+  background-color: #0D171D;
+  border-radius: 25px;
+}
+
+.close-ep {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: inherit;
+  border: none;
 }
 
 * {

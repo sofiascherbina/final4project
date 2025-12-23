@@ -43,10 +43,27 @@ selectorArr.forEach(el=>{
         });
     });
 });
+let epModal = basicLightbox.create(` <div class="modal-ep">
+            <button class="close-ep"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.5 5.5L5.5 16.5" stroke="#A1D737" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5.5 5.5L16.5 16.5" stroke="#A1D737" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="modap-ep-content"></div>
+            </div>`);
+
+let epModalCont = epModal.element();
+let btnCloseEp = epModalCont.querySelector('.close-ep');
+let epModalcontent = epModalCont.querySelector('.modap-ep-content');
+
+btnCloseEp.addEventListener('click', ()=>{
+    epModal.close();
+});
 
 let epList = document.querySelector('.episodes-cont');
 let loadMore = document.querySelector('.ep-more');
 let template = null;
+let modalTemplate = null;
 let page = 1;
 let searchEp = document.querySelector('.search-ep');
 
@@ -181,4 +198,38 @@ async function showFilteredSer(seasonNumber,seriesNumber){
         loadMore.style.display='none';
     }
 }
+async function templateEpReady(){
+    let temp = await fetch('epModal.hbs');
+    let res = await temp.text();
+    modalTemplate = Handlebars.compile(res); 
+}
+async function fetchTargetId(id) {
+    let res = await fetch(`https://rickandmortyapi.com/api/episode/${id}`);
+    return res.json();
+}
+async function fetchCh(urls){
+    let urlChArr = urls.slice(0,4);
+    let chPromises = urlChArr.map(async (url) =>{
+        let res= await fetch(url);
+        return await res.json();
+    });
+    return await Promise.all(chPromises);
+}
+function renderModalEp(ep){
+    const markup = modalTemplate(ep);
+    epModalcontent.insertAdjacentHTML('beforeend', markup);
+}
+async function openModalEp(id){
+    if (!modalTemplate) await templateEpReady();
+    epModalcontent.innerHTML = ''; 
+    let targetEp = await fetchTargetId(id);
+    targetEp.characters = await  fetchCh(targetEp.characters);
+    renderModalEp(targetEp);
+}
+epList.addEventListener('click', async (event)=>{
+    let targetLi = event.target.closest('.ep-el');
+    let targetId = targetLi.dataset.episodeId;
+    epModal.show();
+    await openModalEp(targetId);
+});
 showEpisodes();
