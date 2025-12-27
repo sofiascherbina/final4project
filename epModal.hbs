@@ -1,17 +1,15 @@
-<div>
-    <h3>{{name}}</h3>
-    <ul>
-        <li><p>Id <span>{{id}}</span></p></li>
-        <li><p>Air date <span>{{air_date}}</span></p></li>
+<h3 class="ep-title">{{name}}</h3>
+    <ul class="ep-info">
+        <li><p class="ep-info-txt">Id <br><span>{{id}}</span></p></li>
+        <li><p class="ep-info-txt">Air date <br><span>{{air_date}}</span></p></li>
     </ul>
-    <h3>Characters</h3>
-    <p>Major Characters</p>
-    <ul>
+    <h3 class="ep-title" style="margin-bottom: 10px;">Characters</h3>
+    <p class="ep-info-txt">Major Characters</p>
+    <ul class="modal-ch-arr">
         {{#each characters}}
             <li>
-                <img src="{{image}}" alt="{{url}}" width="50px" height="50px">
+                <img src="{{image}}" alt="{{url}}" width="60px" height="60px">
                 <p>{{name}}</p>
             </li>
         {{/each}}
     </ul>
-</div>

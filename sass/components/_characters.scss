@@ -376,3 +376,99 @@
         }
     }
 }
+.modal-ch{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 710px;
+    height: 510px;
+    background-color: $black;
+    border-radius: 25px;
+    padding: 32px;
+}
+.close-ch{
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    border-radius: 100%;
+    background: inherit;
+    border: none;
+}
+.modap-ch-content{
+    display: flex;
+    gap: 20px;
+    & img{
+        border: 2px solid $light-green;
+        border-radius: 25px;
+    }
+    .ch-info{
+        & ul{
+            width: 278px;
+            height: 146px;
+            border: 1px solid $light-green;
+            border-radius: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 15px;
+            overflow-y: scroll;
+            & li{
+                line-height: 20px;
+            }
+            .ch-info-txt{
+                margin: 0;
+                @include text($size:12px, $color:rgba(white,0.5));
+            & span{
+                @include text( $size:13px, $color:white);
+            }   
+        }
+        }
+    }
+    .ch-title{
+        @include text($weight:600, $size:24px, $color:white);
+    }
+    .ep-list{
+        padding: 0;
+        height: 373px;
+        overflow-y: scroll;
+        & li{
+            display: flex;
+            gap: 100px;
+            border-radius: 20px;
+            border: 1px solid $light-green;
+            padding: 15px;
+            width: 352px;
+            margin-bottom: 10px;
+            & .ep-info-cont{
+                display: flex;
+                gap: 14px;
+                line-height: 20px;
+            }
+            & .ep-name{
+                @include text($weight:600, $size:14px, $color:$light-green);
+                margin: 0;
+            }
+            & .ep-info{
+                margin: 0;
+                @include text($size:12px, $color:rgba(white,0.5));
+                & span{
+                    @include text($size:14px, $color:white);
+                }
+            }
+        }
+    }
+    ::-webkit-scrollbar {
+  width: 5px;      
+}
+
+::-webkit-scrollbar-track {
+  background-color: inherit;  
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $light-green;
+  border-radius: 150px;
+}
+}

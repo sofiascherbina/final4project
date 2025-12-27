@@ -1,0 +1,25 @@
+<div class="ch-info">
+    <img src="{{image}}" alt="{{url}}" width="278px" height="292px">
+    <ul>
+        <li><p class="ch-info-txt">Status <br><span>{{status}}</span></p></li>
+        <li><p class="ch-info-txt">Species<br><span>{{species}}</span></p></li>
+        <li><p class="ch-info-txt">Gender<br><span>{{gender}}</span></p></li>
+        <li><p class="ch-info-txt">Origin<br><span>{{origin.name}}</span></p></li>
+        <li><p class="ch-info-txt">Location<br><span>{{location.name}}</span></p></li>
+        <li><p class="ch-info-txt">Type<br><span>{{type}}</span></p></li>
+    </ul>
+</div>
+<div>
+    <h3 class="ch-title">Episodes</h3>
+    <ul class="ep-list">
+        {{#each episodes}}
+        <li>
+            <p class="ep-name">{{name}}</p>
+            <div class="ep-info-cont">
+                <p class="ep-info">Season<br><span>{{episode}}</span></p>
+                <p class="ep-info">Air date<br><span>{{air_date}}</span></p>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</div>

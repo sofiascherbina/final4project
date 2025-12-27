@@ -22,9 +22,27 @@ selectorArr.forEach(el=>{
         });
 });
 
+let chModal = basicLightbox.create(` <div class="modal-ch">
+            <button class="close-ch"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.5 5.5L5.5 16.5" stroke="#A1D737" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5.5 5.5L16.5 16.5" stroke="#A1D737" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="modap-ch-content"></div>
+            </div>`);
+
+let chModalCont = chModal.element();
+let btnCloseCh = chModalCont.querySelector('.close-ch');
+let chModalcontent = chModalCont.querySelector('.modap-ch-content');
+
+btnCloseCh.addEventListener('click', ()=>{
+    chModal.close();
+});
+
 let chList = document.querySelector('.ch-container');
 let loadMore = document.querySelector('.load-more');
 let template = null;
+let modalTemplate = null;
 let page = 1;
 let searchCh = document.querySelector('.search-ch');
 let filterArr = document.querySelectorAll('.selector');
@@ -129,4 +147,42 @@ async function showFilteredCh(){
         loadMore.style.display='none';
     }
 }
+async function templateChReady(){
+    let temp = await fetch('chModal.hbs');
+    let res = await temp.text();
+    modalTemplate = Handlebars.compile(res); 
+}
+async function fetchTargetId(id) {
+    let res = await fetch(`https://rickandmortyapi.com/api/character/${id}`);
+    return res.json();
+}
+async function fetchEp(urls){
+    let urlEpArr = urls.slice(0,5);
+    let epPromises = urlEpArr.map(async (url) =>{
+        let res= await fetch(url);
+        return await res.json();
+    });
+    return await Promise.all(epPromises);
+}
+function renderModalCh(ch){
+    ch.episodes = ch.episodes.map(ep=>({
+        ...ep,
+        episode : ep.episode.slice(2,3) 
+    }));
+    const markup = modalTemplate(ch);
+    chModalcontent.insertAdjacentHTML('beforeend', markup);
+}
+async function openModalCh(id){
+    if (!modalTemplate) await templateChReady();
+    chModalcontent.innerHTML = ''; 
+    let targetCh = await fetchTargetId(id);
+    targetCh.episodes = await fetchEp(targetCh.episode);
+    renderModalCh(targetCh);
+}
+chList.addEventListener('click', async (event)=>{
+    let targetLi = event.target.closest('.ch-el');
+    let targetId = targetLi.dataset.characterId;
+    chModal.show();
+    await openModalCh(targetId);
+});
  showCharacters();
