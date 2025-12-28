@@ -44,7 +44,8 @@ let loadMore = document.querySelector('.load-more');
 let template = null;
 let modalTemplate = null;
 let page = 1;
-let searchCh = document.querySelector('.search-ch');
+let searchCh = document.querySelectorAll('.search-ch');
+// let searchCh = document.querySelector('.search-ch');
 let filterArr = document.querySelectorAll('.selector');
 
 async function templateReady() {
@@ -80,29 +81,31 @@ function renderCharacter(chArr){
         loadMore.style.display='block';
     }
 }
+searchCh.forEach(search =>{
+    search.addEventListener('input', _.debounce(async ()=>{
+        let inputValue = search.value.trim().toLowerCase();
+        chList.innerHTML = '';
+        if(inputValue === ''){
+            page = 1;
+            showCharacters();
+            return 
+        }
+        try{
+            const res = await fetchCharacters({ name: inputValue });
+            renderCharacter(res.results);
+        }
+        catch{
+            chList.innerHTML = `
+            <div class="error">
+                <div class="error-pic"></div>
+                <p class="error-text" >Oops! Try looking for something else...</p>
+            </div>`;
+            loadMore.style.display='none';
+        }
 
-searchCh.addEventListener('input', _.debounce(async ()=>{
-    let inputValue = searchCh.value.trim().toLowerCase();
-    chList.innerHTML = '';
-    if(inputValue === ''){
-        page = 1;
-        showCharacters();
-        return 
-    }
-    try{
-        const res = await fetchCharacters({ name: inputValue });
-        renderCharacter(res.results);
-    }
-    catch{
-        chList.innerHTML = `
-        <div class="error">
-            <div class="error-pic"></div>
-            <p class="error-text" >Oops! Try looking for something else...</p>
-        </div>`;
-        loadMore.style.display='none';
-    }
-     
-},500));
+    },500));
+})
+
 
 async function fetchCharacters(params = {}) {
 
@@ -185,4 +188,18 @@ chList.addEventListener('click', async (event)=>{
     chModal.show();
     await openModalCh(targetId);
 });
- showCharacters();
+showCharacters();
+
+let arrowBtn = document.querySelector(".arrow-btn");
+arrowBtn.addEventListener('click',()=>{
+  if(arrowBtn.getAttribute("href") === "#footer-common"){
+    arrowBtn.setAttribute("href", "#common-header");
+    arrowBtn.classList.add('arrow-down');
+    arrowBtn.classList.remove('arrow-up');
+  }
+  else if (arrowBtn.getAttribute("href") === "#common-header" || arrowBtn.getAttribute("href") === "#"){
+    arrowBtn.setAttribute("href", "#footer-common");
+    arrowBtn.classList.add('arrow-up');
+    arrowBtn.classList.remove('arrow-down');
+  }
+});

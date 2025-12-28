@@ -49,3 +49,16 @@ function change() {
 
 }
 change();
+let arrowBtn = document.querySelector(".arrow-btn");
+arrowBtn.addEventListener('click',()=>{
+  if(arrowBtn.getAttribute("href") === "#footer"){
+    arrowBtn.setAttribute("href", "#common-header");
+    arrowBtn.classList.add('arrow-down');
+    arrowBtn.classList.remove('arrow-up');
+  }
+  else if (arrowBtn.getAttribute("href") === "#common-header" || arrowBtn.getAttribute("href") === "#"){
+    arrowBtn.setAttribute("href", "#footer");
+    arrowBtn.classList.add('arrow-up');
+    arrowBtn.classList.remove('arrow-down');
+  }
+});

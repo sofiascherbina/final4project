@@ -65,7 +65,7 @@ let loadMore = document.querySelector('.ep-more');
 let template = null;
 let modalTemplate = null;
 let page = 1;
-let searchEp = document.querySelector('.search-ep');
+let searchEp = document.querySelectorAll('.search-ep');
 
 async function templateReady() {
     let temp = await fetch('episodes.hbs');
@@ -122,8 +122,9 @@ function renderEpisodes(epArr){
         loadMore.style.display='block';
     }
 }
-searchEp.addEventListener('input', _.debounce(async ()=>{
-    let inputValue = searchEp.value.trim().toLowerCase();
+searchEp.forEach(search =>{
+    search.addEventListener('input', _.debounce(async ()=>{
+    let inputValue = search.value.trim().toLowerCase();
     epList.innerHTML = '';
     if(inputValue === ''){
         page = 1;
@@ -143,6 +144,7 @@ searchEp.addEventListener('input', _.debounce(async ()=>{
         loadMore.style.display='none';
     } 
 },500));
+});
 async function fetchEpisodes(params = {}) {
 
     const param= new URLSearchParams();
@@ -233,3 +235,16 @@ epList.addEventListener('click', async (event)=>{
     await openModalEp(targetId);
 });
 showEpisodes();
+let arrowBtn = document.querySelector(".arrow-btn");
+arrowBtn.addEventListener('click',()=>{
+  if(arrowBtn.getAttribute("href") === "#footer-common"){
+    arrowBtn.setAttribute("href", "#common-header");
+    arrowBtn.classList.add('arrow-down');
+    arrowBtn.classList.remove('arrow-up');
+  }
+  else if (arrowBtn.getAttribute("href") === "#common-header" || arrowBtn.getAttribute("href") === "#"){
+    arrowBtn.setAttribute("href", "#footer-common");
+    arrowBtn.classList.add('arrow-up');
+    arrowBtn.classList.remove('arrow-down');
+  }
+});
