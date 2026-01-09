@@ -45,7 +45,6 @@ let template = null;
 let modalTemplate = null;
 let page = 1;
 let searchCh = document.querySelectorAll('.search-ch');
-// let searchCh = document.querySelector('.search-ch');
 let filterArr = document.querySelectorAll('.selector');
 
 async function templateReady() {
@@ -203,3 +202,45 @@ arrowBtn.addEventListener('click',()=>{
     arrowBtn.classList.remove('arrow-down');
   }
 });
+window.addEventListener("load", async () => {
+    if (document.fonts?.ready) await document.fonts.ready;
+
+    const marquee = document.querySelector(".marquee");
+    const track = document.querySelector(".moving-line-tack");
+    const group = document.querySelector(".moving-line-container");
+    if (!marquee || !track || !group) return;
+
+    [...track.querySelectorAll(".moving-line-container")].slice(1).forEach(n => n.remove());
+
+   
+    while (track.scrollWidth < marquee.clientWidth * 2) {
+      const clone = group.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      track.appendChild(clone);
+    }
+
+    let w = Math.round(group.scrollWidth);   
+    let x = 0;
+
+    const pxPerSec = 100; 
+    let last = performance.now();
+
+    function loop(now) {
+      const dt = (now - last) / 1000; 
+      last = now;
+
+      x -= pxPerSec * dt;
+
+      if (x <= -w) x += w;
+      track.style.transform = `translate3d(${Math.round(x)}px,0,0)`;
+
+      requestAnimationFrame(loop);
+    }
+
+    requestAnimationFrame(loop);
+
+    window.addEventListener("resize", () => {
+      w = Math.round(group.scrollWidth);
+      x = 0;
+    });
+  });

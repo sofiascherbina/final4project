@@ -1,14 +1,26 @@
-.moving-line{
+.marquee { 
     position: relative;
+    top: -60px;
+    overflow: hidden;
+    width: 100%;
     height: 173px;
 }
+.moving-line-tack{
+    display: flex; 
+    position: relative;
+    width: max-content;
+    will-change: transform;
+    transform: translate3d(0,0,0);
+}
 .moving-line-container{
-    position: absolute;
+    position: relative;
     padding-left: 20px;
-    top: -60px;
+    // top: -60px;
     left: 0;
     display: flex;
+    flex-shrink: 0;
     flex-wrap: nowrap;
+    width: 1500px;
     margin: 0;
     & .first{
         & p:nth-child(1){
@@ -162,6 +174,13 @@
         margin: 0;
     }
 }
+.render-character{
+    display: flex;
+    gap: 24px;
+    width: 1184px;
+    flex-wrap: wrap;
+    margin: auto;
+}
 .characters-slider-cont{
     height: 764px;
     margin-top: 110px;
@@ -274,6 +293,8 @@
     animation: bg-down 2s linear;
 }
 .episodes-slider{
+    overflow: hidden;
+    width: 100%;
     height: 744px;
     margin-top: 110px;
     padding-top: 100px;
@@ -308,15 +329,18 @@
     }
     }
 }
+.episodes-slider-moving-line{
+    display: flex; 
+    position: relative;
+    width: max-content;
+    will-change: transform;
+    transform: translate3d(0,0,0);
+}
 .episodes-slider_container{
     display: flex;
-    overflow: hidden;
     gap: 24px;
-    // & .first{
-    //     & li{
-    //         border: 1px solid red;
-    //     }
-    // }
+    flex-shrink: 0; 
+    width: max-content;
 }
 .episodes-slider_list{
     display: flex;
@@ -342,20 +366,6 @@ $icons: 'first', 'second' ,'third', 'fourth', 'fifth';
     .ep_li-#{$icons-items}{
         background-image: url("/img/other/#{$icons-items}.png");
     }
-}
-.firstMove{
-animation:moveFirst 5s linear infinite;
-}
-.secondMove{
-animation: moveSecond 5s linear infinite ;
-}
-@keyframes moveFirst{
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-100%); }
-}
-@keyframes moveSecond{
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(0%); }
 }
 .episodes-btn{
     & a{

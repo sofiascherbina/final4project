@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.8/dist/handlebars.min.js"></script>
     <link rel="stylesheet" href="./css/style.min.css">
 </head>
-<body>
+<body>    
 <header id="common-header">
     <div class="header-main-cont">
         <div class="container">
@@ -31,8 +31,9 @@
     </div>
 </header>
 <main>
-    <div class="moving-line">
-        <ul class="moving-line-container">
+    <div class="marquee" id="marquee">
+    <div class="moving-line-tack" id="track">
+        <ul class="moving-line-container"  id="group">
             <li class="moving-line-container_el first">
                 <p>the adventures</p>
                 <p>Animated</p>
@@ -59,6 +60,8 @@
             </li>
         </ul>
     </div>
+    </div>
+    <div class="render-character"></div>
     <div class="container">
         <div class="characters-slider-cont">
             <h2><span>Main</span> characters</h2>
@@ -93,21 +96,23 @@
         <div class="container">
             <h3>Ready to <span>explore</span> the crazy world of Rick and Morty?</h3>
         </div>
-        <div class="episodes-slider_container">
-            <ul class="episodes-slider_list first firstMove">
-                <li class="ep_li-first"></li>
-                <li class="ep_li-second"></li>
-                <li class="ep_li-third"></li>
-                <li class="ep_li-fourth"></li>
-                <li class="ep_li-fifth"></li>
-            </ul>
-            <ul class="episodes-slider_list second firstMove">
-                <li class="ep_li-first"></li>
-                <li class="ep_li-second"></li>
-                <li class="ep_li-third"></li>
-                <li class="ep_li-fourth"></li>
-                <li class="ep_li-fifth"></li>
-            </ul>
+        <div class="episodes-slider-moving-line">
+            <div class="episodes-slider_container">
+                <ul class="episodes-slider_list first firstMove">
+                    <li class="ep_li-first"></li>
+                    <li class="ep_li-second"></li>
+                    <li class="ep_li-third"></li>
+                    <li class="ep_li-fourth"></li>
+                    <li class="ep_li-fifth"></li>
+                </ul>
+                <ul class="episodes-slider_list second firstMove">
+                    <li class="ep_li-first"></li>
+                    <li class="ep_li-second"></li>
+                    <li class="ep_li-third"></li>
+                    <li class="ep_li-fourth"></li>
+                    <li class="ep_li-fifth"></li>
+                </ul>
+            </div>
         </div>
         <div class="episodes-btn"><a href="/episodes.html">Episodes</a></div>
     </div>
@@ -138,7 +143,52 @@
         <p class="footer-text">Privacy Policy Public Offering Agreement</p>
     </div>
 </footer>
-    <script src="./index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+<script>
+  window.addEventListener("load", async () => {
+    if (document.fonts?.ready) await document.fonts.ready;
+
+    const marquee = document.querySelector(".episodes-slider");
+    const track = document.querySelector(".episodes-slider-moving-line");
+    const group = document.querySelector(".episodes-slider_container");
+    if (!marquee || !track || !group) return;
+
+    [...track.querySelectorAll(".episodes-slider_container")].slice(1).forEach(n => n.remove());
+
+   
+    while (track.scrollWidth < marquee.clientWidth * 2) {
+      const clone = group.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      track.appendChild(clone);
+    }
+
+    let w = Math.round(group.scrollWidth);   
+    let x = 0;
+
+    const pxPerSec = 100; 
+    let last = performance.now();
+
+    function loop(now) {
+      const dt = (now - last) / 1000; 
+      last = now;
+
+      x -= pxPerSec * dt;
+
+      if (x <= -w) x += w;
+      track.style.transform = `translate3d(${Math.round(x)}px,0,0)`;
+
+      requestAnimationFrame(loop);
+    }
+
+    requestAnimationFrame(loop);
+
+    window.addEventListener("resize", () => {
+      w = Math.round(group.scrollWidth);
+      x = 0;
+    });
+  });
+</script>
+<script src="./index.js"></script>
 </body>
 </html>
