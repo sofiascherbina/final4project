@@ -1574,6 +1574,12 @@
   padding: 32px;
 }
 
+@media screen and (max-width: 376px) {
+  .modal-ch {
+    width: 320px;
+    overflow: hidden;
+  }
+}
 .close-ch {
   position: absolute;
   top: 15px;
@@ -2006,6 +2012,11 @@
   border-radius: 25px;
 }
 
+@media screen and (max-width: 376px) {
+  .modal-ep {
+    width: 320px;
+  }
+}
 .close-ep {
   position: absolute;
   top: 15px;
@@ -2015,6 +2026,12 @@
   border: none;
 }
 
+@media screen and (max-width: 376px) {
+  .close-ep {
+    top: 20px;
+    right: 15px;
+  }
+}
 .modap-ep-content {
   width: 609px;
   height: 306px;
@@ -2038,6 +2055,13 @@
   padding: 0;
 }
 
+@media screen and (max-width: 376px) {
+  .modap-ep-content {
+    width: 300px;
+    margin: 10px;
+    height: 350px;
+  }
+}
 .ep-info-txt {
   font-family: "Montserrat";
   font-weight: 400;
@@ -2076,6 +2100,25 @@
   color: white;
 }
 
+@media screen and (max-width: 376px) {
+  .modal-ch-arr {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    overflow: scroll;
+    height: 100px;
+  }
+  .modal-ch-arr ::-webkit-scrollbar {
+    width: 5px;
+  }
+  .modal-ch-arr ::-webkit-scrollbar-track {
+    background-color: inherit;
+    border-radius: 10px;
+  }
+  .modal-ch-arr ::-webkit-scrollbar-thumb {
+    background: #DAF836;
+    border-radius: 150px;
+  }
+}
 * {
   list-style-type: none;
   text-decoration: none;

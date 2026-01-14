@@ -387,6 +387,12 @@
     border-radius: 25px;
     padding: 32px;
 }
+@media screen and (max-width:376px) {
+    .modal-ch{
+        width: 320px;
+        overflow: hidden;
+    }
+}
 .close-ch{
     position: absolute;
     top: 15px;

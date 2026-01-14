@@ -224,6 +224,11 @@
     background-color: $black;
     border-radius: 25px;
 }
+@media screen and (max-width:376px){
+    .modal-ep{
+        width: 320px;
+    }
+}
 .close-ep{
     position: absolute;
     top: 15px;
@@ -231,6 +236,12 @@
     border-radius: 100%;
     background: inherit;
     border: none;
+}
+@media screen and (max-width:376px){
+    .close-ep{
+        top: 20px;
+        right: 15px;
+    }
 }
 .modap-ep-content{
     width: 609px;
@@ -248,6 +259,14 @@
         gap: 32px;
         padding: 0;
     }
+}
+@media screen and (max-width:376px){
+    .modap-ep-content{
+        width: 300px;
+        margin: 10px;
+        height: 350px;
+    }
+    
 }
 .ep-info-txt{
     @include text( $size: 12px,  $color:rgba(white,0.5));
@@ -271,4 +290,22 @@
             @include text($color:white,$size:12px); 
         }   
     }
+}
+@media screen and (max-width:376px){
+    .modal-ch-arr{
+        flex-wrap: wrap;
+        overflow: scroll;
+        height: 100px;
+    ::-webkit-scrollbar {
+        width: 5px;      
+    }
+    ::-webkit-scrollbar-track {
+        background-color: inherit;  
+         border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: $light-green;
+        border-radius: 150px;
+    }
+}
 }
