@@ -613,6 +613,13 @@
     width: 768px;
   }
 }
+@media screen and (max-width: 376px) {
+  .ch-text {
+    padding-top: 32px;
+    padding-left: 0;
+    width: 376px;
+  }
+}
 .selected {
   font-family: "Montserrat";
   font-weight: 600;
